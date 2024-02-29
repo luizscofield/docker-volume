@@ -1,0 +1,44 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+</head>
+<body>
+    <h1>Image Upload</h1>
+    <form id="uploadForm" enctype="multipart/form-data" action="/upload" method="post">
+        <input type="file" name="myImage">
+        <button type="submit">Upload Image</button>
+    </form>
+    
+    <!-- Display uploaded images -->
+    <div id="imageContainer"></div>
+
+    <script>
+        // Function to fetch and display uploaded images
+        async function fetchAndDisplayImages() {
+            const response = await fetch('/images');
+            if (response.ok) {
+                const imageFiles = await response.json();
+                const imageContainer = document.getElementById('imageContainer');
+                imageContainer.innerHTML = ''; // Clear previous images
+                imageFiles.forEach(filename => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = `/uploads/${filename}`;
+                    imgElement.style.maxWidth = '100%';
+                    imgElement.style.height = 'auto';
+                    imageContainer.appendChild(imgElement);
+                });
+            } else {
+                console.error('Error fetching images:', response.statusText);
+            }
+        }
+
+        // Call fetchAndDisplayImages function when the page loads
+        fetchAndDisplayImages();
+    </script>
+</body>
+</html>
