@@ -1,11 +1,12 @@
 # Practice with docker volumes
 
-This repository contains a Dockerfile and two code files to build a node.js web page.
+This repository contains a Dockerfile and two code files to build a node.js webpage.
 You just need to clone this repo and then build the image.
 
 ## How can I use this application?
 
 ```console
+$ git clone https://github.com/luizscofield/docker-volume.git
 $ docker build -t my-application .
 $ docker run -d -p 80:3000 --name=my-container my-application
 ```
