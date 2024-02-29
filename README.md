@@ -7,7 +7,7 @@ You just need to clone this repo and then build the image.
 
 ```console
 $ docker build -t my-application .
-$ docker run -d -p 80:80 --name=my-container my-application
+$ docker run -d -p 80:3000 --name=my-container my-application
 ```
 
 You can use the webpage to upload pictures.
