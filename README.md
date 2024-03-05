@@ -20,4 +20,5 @@ The problem with this application is that, once the container is recreated, all 
 The challenge is to persist the images even after the container is recreated, using volumes.
 
 The uploaded images are stored at the /home/node/docker-volume/uploads folder.
-Good luck!
+
+# Good luck!
